@@ -1,0 +1,277 @@
+<?xml version="1.0" ?>
+<robot name="gaitron" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find gaitron_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find gaitron_description)/urdf/gaitron.trans" />
+<xacro:include filename="$(find gaitron_description)/urdf/gaitron.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.018187302316957723 0.0003146789492654537 0.2730942746847694" rpy="0 0 0"/>
+    <mass value="8.773901551379977"/>
+    <inertia ixx="0.539982" iyy="0.485468" izz="0.213919" ixy="-0.000382" iyz="0.000155" ixz="0.019258"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitron_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitron_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="base_laser_1">
+  <inertial>
+    <origin xyz="-9.486219194887457e-08 -3.333972625520898e-08 0.011499999999999955" rpy="0 0 0"/>
+    <mass value="0.08426568311017746"/>
+    <inertia ixx="3e-05" iyy="3e-05" izz="5.2e-05" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.050656 2.1e-05 -0.24251" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitron_description/meshes/base_laser_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.050656 2.1e-05 -0.24251" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitron_description/meshes/base_laser_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_wheel_1">
+  <inertial>
+    <origin xyz="3.7956646488368495e-07 0.01649999999999993 0.0" rpy="0 0 0"/>
+    <mass value="0.042330100058116465"/>
+    <inertia ixx="4.2e-05" iyy="7.7e-05" izz="4.2e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.081659 -0.203 -0.061033" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitron_description/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.081659 -0.203 -0.061033" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitron_description/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_wheel_1">
+  <inertial>
+    <origin xyz="-4.747351942530065e-07 -0.016500000000000015 2.0757467511511862e-07" rpy="0 0 0"/>
+    <mass value="0.3280582754504032"/>
+    <inertia ixx="0.000325" iyy="0.000595" izz="0.000325" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.08166 0.203 -0.061033" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitron_description/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.08166 0.203 -0.061033" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitron_description/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="mount2_1">
+  <inertial>
+    <origin xyz="3.788362733236905e-07 3.347698420280709e-07 -0.0011499999999999982" rpy="0 0 0"/>
+    <mass value="0.07023170190652236"/>
+    <inertia ixx="1.9e-05" iyy="2.7e-05" izz="4.6e-05" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.140541 0.113849 -0.08599" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitron_description/meshes/mount2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.140541 0.113849 -0.08599" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitron_description/meshes/mount2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_arm_1">
+  <inertial>
+    <origin xyz="-0.008537708186053067 0.001039880549903907 -0.01680540920244966" rpy="0 0 0"/>
+    <mass value="0.18456574532830566"/>
+    <inertia ixx="0.000102" iyy="0.000107" izz="9.9e-05" ixy="4e-06" iyz="6e-06" ixz="-3.5e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.140541 0.113849 -0.08369" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitron_description/meshes/right_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.140541 0.113849 -0.08369" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitron_description/meshes/right_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_caster_1">
+  <inertial>
+    <origin xyz="3.19185525315957e-07 3.3476981878277634e-07 -6.25848733948331e-10" rpy="0 0 0"/>
+    <mass value="0.1214566303951998"/>
+    <inertia ixx="5.1e-05" iyy="8.3e-05" izz="5.1e-05" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.169884 0.113849 -0.03769" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitron_description/meshes/right_caster_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.169884 0.113849 -0.03769" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitron_description/meshes/right_caster_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="mount1_1">
+  <inertial>
+    <origin xyz="3.788362733236905e-07 3.347698420558265e-07 -0.0011499999999999982" rpy="0 0 0"/>
+    <mass value="0.07023170190652235"/>
+    <inertia ixx="1.9e-05" iyy="2.7e-05" izz="4.6e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.140541 -0.114151 -0.08599" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitron_description/meshes/mount1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.140541 -0.114151 -0.08599" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitron_description/meshes/mount1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_arm_1">
+  <inertial>
+    <origin xyz="-0.008537708186058923 0.0010398836486579799 -0.01680540920244923" rpy="0 0 0"/>
+    <mass value="0.18456574532843886"/>
+    <inertia ixx="0.000102" iyy="0.000107" izz="9.9e-05" ixy="4e-06" iyz="6e-06" ixz="-3.5e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.140541 -0.114151 -0.08369" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitron_description/meshes/left_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.140541 -0.114151 -0.08369" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitron_description/meshes/left_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_caster_1">
+  <inertial>
+    <origin xyz="3.19185525315957e-07 3.347698188105319e-07 -6.258487478261188e-10" rpy="0 0 0"/>
+    <mass value="0.1214566303951998"/>
+    <inertia ixx="5.1e-05" iyy="8.3e-05" izz="5.1e-05" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.169884 -0.114151 -0.03769" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitron_description/meshes/left_caster_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.169884 -0.114151 -0.03769" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://gaitron_description/meshes/left_caster_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="rig1" type="fixed">
+  <origin xyz="-0.050656 -2.1e-05 0.24251" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="base_laser_1"/>
+</joint>
+
+<joint name="rev1" type="continuous">
+  <origin xyz="0.081659 0.203 0.061033" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="rev2" type="continuous">
+  <origin xyz="0.08166 -0.203 0.061033" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="rig2" type="fixed">
+  <origin xyz="-0.140541 -0.113849 0.08599" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="mount2_1"/>
+</joint>
+
+<joint name="rev3" type="continuous">
+  <origin xyz="0.0 0.0 -0.0023" rpy="0 0 0"/>
+  <parent link="mount2_1"/>
+  <child link="right_arm_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="rev4" type="continuous">
+  <origin xyz="-0.029343 0.0 -0.046" rpy="0 0 0"/>
+  <parent link="right_arm_1"/>
+  <child link="right_caster_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="rig3" type="fixed">
+  <origin xyz="-0.140541 0.114151 0.08599" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="mount1_1"/>
+</joint>
+
+<joint name="rev5" type="continuous">
+  <origin xyz="0.0 0.0 -0.0023" rpy="0 0 0"/>
+  <parent link="mount1_1"/>
+  <child link="left_arm_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="rev6" type="continuous">
+  <origin xyz="-0.029343 0.0 -0.046" rpy="0 0 0"/>
+  <parent link="left_arm_1"/>
+  <child link="left_caster_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+</robot>

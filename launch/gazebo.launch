@@ -1,0 +1,23 @@
+<launch>
+  <arg name="rvizconfig" default="$(find gaitron_description)/config/navigation_config.rviz"/>
+  <!--<arg name="world_map" default="$(find gaitron_description)/gaitron_map.yaml"/>-->
+  <param name="robot_description" command="$(find xacro)/xacro $(find gaitron_description)/urdf/gaitron.xacro"/>
+  
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model gaitron"/>
+  <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui"/>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+  <node name="rviz" type="rviz" pkg="rviz" args=" -d $(arg rvizconfig)" required="true"/>
+  <!--
+  <node name="map_server" type="map_server" pkg="map_server" args="$(arg world_map)"/> -->
+  
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="/home/gaittrainer/.gazebo/models/bookstore/bookstore.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+  
+  <!-- <include file="$(find gaitron_description)/launch/localization.launch"/> -->
+</launch>
